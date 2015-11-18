@@ -1,0 +1,20 @@
+<body>
+<div class="header" align="center"><h1>Final Project</h1></div>
+<!-- PULL IN THE POLL CREATION FORM -->
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 col-md-offset-3">
+
+      {{ >pollForm }}
+    </div>
+  </div>
+</div>
+
+<!-- LOOP OVER POLLS AND SHOW EACH -->
+<div class="polls">
+  {{ #each polls }}
+  {{ >poll }}
+  {{ /each }}
+</div>
+
+</body>
