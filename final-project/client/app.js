@@ -17,3 +17,7 @@ UI.registerHelper('indexedArray', function(context, options) {
   }
 });
 
+
+Accounts.ui.config({
+  passwordSignupFields: "USERNAME_ONLY"
+});

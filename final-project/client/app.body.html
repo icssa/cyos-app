@@ -3,9 +3,12 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-md-6 col-md-offset-3">
 
+    <div class="col-md-6 col-md-offset-3">
+      {{> loginButtons}}
+      {{#if currentUser}}
       {{ >pollForm }}
+      {{/if}}
     </div>
   </div>
 </div>
