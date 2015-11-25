@@ -1,7 +1,17 @@
 <template name="poll">
 
   <div class="poll well well-lg" data-id="{{ _id }}">
+
+{{#if exceedsThreshold}}
+    {{#if isCreator}}
     <button class="delete">&times;</button>
+    {{/if}}
+
+  <br>
+    <div align="center"> {{creator}} </div>
+    <div align="left"> Total Votes: {{totalvotes}}</div>
+     <div align="right"> Threshold: {{threshold}}</div>
+
     <h3>{{ question }}</h3>
 
     {{ #each indexedArray choices }}
@@ -11,5 +21,14 @@
     </a>
     {{ /each }}
 
+      {{/if}}
+      {{#if belowThreshold}}
+        {{ #each indexedArray responses }}
+
+          <span class="votes pull-right">{{ responses }}</span>
+        {{ /each }}
+      {{/if}}
+
   </div>
 </template>
+

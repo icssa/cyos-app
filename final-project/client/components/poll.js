@@ -11,6 +11,7 @@ Template.poll.events({
     var pollID = $(event.currentTarget).parent('.poll').data('id');
     var voteID = $(event.currentTarget).data('id');
 
+console.log($(event));
     // create the incrementing object so we can add to the corresponding vote
     var voteString = 'choices.' + voteID + '.votes';
     var action = {};
@@ -23,6 +24,7 @@ Template.poll.events({
     );
   },
 
+
   //event to handle clicking delete
   'click .delete': function (event) {
     var pollID = $(event.currentTarget).parent('.poll').data('id');
@@ -31,3 +33,28 @@ Template.poll.events({
 
 });
 
+Template.poll.helpers({
+  isCreator: function (){
+    if(Meteor.user().username == this.creator)
+    {
+        this.totalvotes += 44;
+      return true;
+    }
+    else return false;
+  },
+    belowThreshold: function (){
+        if(this.totalvotes >= this.threshold)
+        {
+            return true;
+        }
+        else return false;
+    },
+    exceedsThreshold: function (){
+        if(this.totalvotes >= this.threshold)
+        {
+            return false;
+        }
+        else return true;
+    }
+
+});
