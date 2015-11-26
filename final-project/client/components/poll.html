@@ -2,7 +2,7 @@
 
   <div class="poll well well-lg" data-id="{{ _id }}">
 
-{{#if exceedsThreshold}}
+{{#if belowThreshold}}
     {{#if isCreator}}
     <button class="delete">&times;</button>
     {{/if}}
@@ -22,11 +22,8 @@
     {{ /each }}
 
       {{/if}}
-      {{#if belowThreshold}}
-        {{ #each indexedArray responses }}
-
-          <span class="votes pull-right">{{ responses }}</span>
-        {{ /each }}
+      {{#if exceedsThreshold}}
+        {{ getMaxVoted }}
       {{/if}}
 
   </div>
