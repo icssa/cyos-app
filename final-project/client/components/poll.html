@@ -16,16 +16,64 @@
     <h3>{{ question }}</h3>
 
     {{ #each indexedArray choices }}
-    <a href="#" class="vote btn btn-primary" data-id="{{ _index }}">
-      <span class="votes pull-right">{{ votes }}</span>
-      <span class="text">{{ text }}</span>
+    <a href="#" class="vote btn btn-primary" data-id="{{ _index }}" id="votebuttons">
+
+      <span class="text">{{ text }}</span><br>
+        <span class="votes pull-right">{{ votes }}</span>
     </a>
     {{ /each }}
 
       {{/if}}
       {{#if exceedsThreshold}}
     {{#if isCreator}}
-    <button class="update pull-right">Update</button>
+      <button class="delete">&times;</button>
+      <div class="dropdown pull-right" >
+          <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Update
+              <span class="caret"></span></button>
+          <ul class="dropdown-menu">
+              <li>
+                  <form>
+                      <div class="form-group">
+                          <label>Story</label>
+                          <input type="text" name="question" class="form-control" placeholder="Next Paragraph">
+
+                      </div>
+                      <div class="form-group">
+                          <label>Threshold</label>
+                          <input type="number" name="threshold" class="form-control" placeholder="Vote Threshold">
+
+                      </div>
+
+                      <div class="form-group">
+                          <label>Choice #1</label>
+                          <input type="text" name="choice1" class="form-control" placeholder="Choice #1">
+                      </div>
+                      <div class="form-group">
+                          <label>Response #1</label>
+                          <input type="text" name="response1" class="form-control" placeholder="Response #1">
+                      </div>
+                      <div class="form-group">
+                          <label>Choice #2</label>
+                          <input type="text" name="choice2" class="form-control" placeholder="Choice #2">
+                      </div>
+                      <div class="form-group">
+                          <label>Response #2</label>
+                          <input type="text" name="response2" class="form-control" placeholder="Response #2">
+                      </div>
+                      <div class="form-group">
+                          <label>Choice #3</label>
+                          <input type="text" name="choice3" class="form-control" placeholder="Choice #3">
+                      </div>
+                      <div class="form-group">
+                          <label>Response #3</label>
+                          <input type="text" name="response3" class="form-control" placeholder="Response #3">
+                      </div>
+
+                      <button type="submit" class="btn btn-lg btn-primary btn-block">Update Story</button>
+                  </form>
+              </li>
+          </ul>
+      </div>
     {{/if}}
         {{ getMaxVoted }}
       {{/if}}

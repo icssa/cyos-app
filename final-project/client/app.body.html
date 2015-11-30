@@ -1,8 +1,15 @@
 <body>
-<div class="header" align="center"><h1>Final Project</h1></div>
 
+<div class="header" align="center"><h1>Story App</h1></div>
+<div id="loginbuttons">{{> loginButtons}}</div>
 {{>navbar}}
 {{> selectFrame}}
+
+{{#if isStories}}
+{{ #each polls }}
+{{ >poll}}
+{{ /each }}
+{{/if}}
 
 </body>
 
@@ -16,19 +23,22 @@
 </template>
 
 <template name="polls">
-
-    <div class="polls">
-        {{ #each polls }}
-
-        {{ >poll }}
-        {{ /each }}
-    </div>
-
+<h2>Stories</h2>
 </template>
 
 <template name="about">
-    <div class="about">
-        <p>About</p>
+
+    <div class="aboutdiv1">
+
+        <div id="aboutdiv2">
+            <h2>About</h2>
+            <ul>
+                <li> This page was built using Meteor.</li><br><br>
+                <li>It uses various meteor packages to handle functionality such as user accounts and dynamic templates.</li><br><br>
+                <li> MongoDB is used to store persistent data for user accounts and submitted stories.</li>
+            </ul>
+
+        </div>
     </div>
 
 </template>
@@ -36,9 +46,8 @@
 <template name="submissions">
     <div class="container">
         <div class="row">
-
+<h2>Submit</h2>
             <div class="col-md-6 col-md-offset-3">
-                <div id="loginbuttons">{{> loginButtons}}</div>
                 {{#if currentUser}}
                 {{ >pollForm }}
                 {{/if}}

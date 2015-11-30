@@ -35,10 +35,29 @@ if (Meteor.isClient) {
   });
 
   Template.body.events({
-    'click .btn-primary': function (event) {
+    'click .btn-secondary': function (event) {
       event.preventDefault();
       console.log(event.target.id);
       Session.set('board', event.target.id);
+    },
+
+    'click #update': function () {
+      Session.set("board", "submissions");
+    },
+
+    'click #newsubmit': function () {
+      Session.set("board", "polls");
+    }
+
+  });
+
+
+
+  Template.body.helpers({
+    isStories: function()
+    {
+      console.log(Session.get('board'));
+      return (Session.get('board') == 'polls');
     }
   });
 }

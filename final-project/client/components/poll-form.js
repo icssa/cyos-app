@@ -28,4 +28,5 @@ Template.pollForm.events({
     Polls.insert(newPoll);
   }
 
+
 });

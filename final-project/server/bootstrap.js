@@ -2,24 +2,24 @@
 Meteor.startup(function() {
 
   // if there are no polls available create sample data
-  if (Polls.find().count() === -999) {
+  if (Polls.find().count() === 0) {
 
     // create sample polls
     var samplePolls = [
       {
-        question: 'Is Meteor awesome?',
+        creator: "abc",
+        threshold: 5,
+        totalvotes: 0,
+        question: 'You are stuck in a room.',
         choices: [
-          { text: 'Of course!', votes: 0 },
-          { text: 'Eh', votes: 0 },
-          { text: 'No. I like plain JS', votes: 0 }
-        ]
-      },
-      {
-        question: 'Is CSS3 Flexbox the greatest thing since array_slice(bread)?',
-        choices: [
-          { text: '100% yes', votes: 0 },
-          { text: '200% yes', votes: 0 },
-          { text: '300% yes', votes: 0 }
+          { text: 'Retrieve arms', votes: 0 },
+          { text: 'Leave room', votes: 0 },
+          { text: 'Panic', votes: 0 }
+        ],
+        responses: [
+          { text: 'You already have arms'},
+          { text: 'There is no exit'},
+          { text: 'You panic, but nothing happens'}
         ]
       }
     ];
