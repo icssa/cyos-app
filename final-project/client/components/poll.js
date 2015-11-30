@@ -35,7 +35,16 @@ Template.poll.events({
   'click .delete': function (event) {
     var pollID = $(event.currentTarget).parent('.poll').data('id');
   Polls.remove(pollID);
-  }
+  },
+
+    //event to handle clicking update
+    'click .update': function (event) {
+        var pollID = $(event.currentTarget).parent('.poll').data('id');
+        Polls.update(
+            {_id: pollID},
+            {$inc: action}
+        );
+    }
 
 });
 

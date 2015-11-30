@@ -1,24 +1,52 @@
 <body>
 <div class="header" align="center"><h1>Final Project</h1></div>
 
-<div class="container">
-  <div class="row">
-
-    <div class="col-md-6 col-md-offset-3">
-      {{> loginButtons}}
-      {{#if currentUser}}
-      {{ >pollForm }}
-      {{/if}}
-    </div>
-  </div>
-</div>
-
-
-<div class="polls">
-  {{ #each polls }}
-
-  {{ >poll }}
-  {{ /each }}
-</div>
+{{>navbar}}
+{{> selectFrame}}
 
 </body>
+
+
+<template name="selectFrame">
+    <div class="container">
+        <div class="frameCarousel">
+            {{> Template.dynamic template=active data=this}}
+        </div>
+    </div>
+</template>
+
+<template name="polls">
+
+    <div class="polls">
+        {{ #each polls }}
+
+        {{ >poll }}
+        {{ /each }}
+    </div>
+
+</template>
+
+<template name="about">
+    <div class="about">
+        <p>About</p>
+    </div>
+
+</template>
+
+<template name="submissions">
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md-6 col-md-offset-3">
+                <div id="loginbuttons">{{> loginButtons}}</div>
+                {{#if currentUser}}
+                {{ >pollForm }}
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</template>
+
+
+
+

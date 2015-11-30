@@ -2,7 +2,7 @@
 Meteor.startup(function() {
 
   // if there are no polls available create sample data
-  if (Polls.find().count() === 0) {
+  if (Polls.find().count() === -999) {
 
     // create sample polls
     var samplePolls = [

@@ -5,6 +5,7 @@
 {{#if belowThreshold}}
     {{#if isCreator}}
     <button class="delete">&times;</button>
+      <button class="update pull-right">Edit</button>
     {{/if}}
 
   <br>
@@ -15,7 +16,7 @@
     <h3>{{ question }}</h3>
 
     {{ #each indexedArray choices }}
-    <a href="#" class="vote btn btn-primary btn-block" data-id="{{ _index }}">
+    <a href="#" class="vote btn btn-primary" data-id="{{ _index }}">
       <span class="votes pull-right">{{ votes }}</span>
       <span class="text">{{ text }}</span>
     </a>
@@ -23,6 +24,9 @@
 
       {{/if}}
       {{#if exceedsThreshold}}
+    {{#if isCreator}}
+    <button class="update pull-right">Update</button>
+    {{/if}}
         {{ getMaxVoted }}
       {{/if}}
 
